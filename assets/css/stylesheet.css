@@ -9,6 +9,12 @@ body {
     padding: 0;
 }
 
+h1,
+h2,
+h3 {
+    color: orange;
+}
+
 body * {
     border: 0;
     margin: 0;
@@ -33,16 +39,36 @@ section {
 section div {
     border-radius: 5px;
     margin: 5px 10px;
-    padding-inline: 30px;
+
     background-color: #222222;
     display: inline-block;
     align-content: center;
     justify-content: space-around;
     text-align: center;
+    min-width: 190px;
+    padding: 10px 30px;
+}
+
+section p {
+    margin: 6px;
+}
+
+section em {
+    font-weight: bold;
+    color: orange;
+    font-style: normal;
+}
+
+#explanation {
+    padding: 5px;
 }
 
 @media screen and (min-width: 520px) {
     section {
         flex-direction: row;
+    }
+
+    #explanation {
+        padding: 10px 30px;
     }
 }

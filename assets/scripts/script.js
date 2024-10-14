@@ -21,8 +21,8 @@ function updateTimes() {
     let kumana = Math.floor(((secondsSinceMidnight % 10800) % 900) / 30);
     let kislun = secondsSinceMidnight % 30;
 
-    currentTime.innerHTML = `${hours}:${minutes}:${seconds}`;
-    mandoTime.innerHTML = `${hakbase}:${getue}:${kumana}:${kislun}`;
+    currentTime.innerHTML = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    mandoTime.innerHTML = `${hakbase}:${String(getue).padStart(2, '0')}:${String(kumana).padStart(2, '0')}:${String(kislun).padStart(2, '0')}`;
 
     let tzTime = new Date();
     let tzHours = tzTime.getHours();
@@ -36,8 +36,8 @@ function updateTimes() {
     let tzKumana = Math.floor(((tzSecondsSinceMidnight % 10800) % 900) / 30);
     let tzKislun = tzSecondsSinceMidnight % 30;
 
-    currentTimeLocal.innerHTML = `${tzHours}:${tzMinutes}:${tzSeconds}`;
-    mandoTimeLocal.innerHTML = `${tzHakbase}:${tzGetue}:${tzKumana}:${tzKislun}`;
+    currentTimeLocal.innerHTML = `${String(tzHours).padStart(2, '0')}:${String(tzMinutes).padStart(2, '0')}:${String(tzSeconds).padStart(2, '0')}`;
+    mandoTimeLocal.innerHTML = `${tzHakbase}:${String(tzGetue).padStart(2, '0')}:${String(tzKumana).padStart(2, '0')}:${String(tzKislun).padStart(2, '0')}`;
 }
 
 var t = setInterval(updateTimes, 1000);
