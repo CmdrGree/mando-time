@@ -23,15 +23,11 @@ header {
     justify-content: center;
 }
 
-footer {
-    bottom: 0;
-    min-height: 30px;
-    background-color: black;
-}
-
 section {
     display: flex;
     justify-content: space-around;
+    min-height: 300px;
+    flex-direction: column;
 }
 
 section div {
