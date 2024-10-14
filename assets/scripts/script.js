@@ -1,6 +1,11 @@
 ﻿let currentTime = document.getElementById("currentTime");
 let mandoTime = document.getElementById("mandoTime");
 
+let timeZoneDisplay = document.getElementById("timeZoneDisplay");
+
+let currentTimeLocal = document.getElementById("currentTimeLocal");
+let mandoTimeLocal = document.getElementById("mandoTimeLocal");
+
 const secondsInADay = 24 * 60 * 60; // Number of seconds in a day
 
 
@@ -18,6 +23,21 @@ function updateTimes() {
 
     currentTime.innerHTML = `${hours}:${minutes}:${seconds}`;
     mandoTime.innerHTML = `${hakbase}:${getue}:${kumana}:${kislun}`;
+
+    let tzTime = new Date();
+    let tzHours = tzTime.getHours();
+    let tzMinutes = tzTime.getMinutes();
+    let tzSeconds = tzTime.getSeconds();
+
+    let tzSecondsSinceMidnight = tzHours * 3600 + tzMinutes * 60 + tzSeconds;
+
+    let tzHakbase = Math.floor(tzSecondsSinceMidnight / 10800) + 1;
+    let tzGetue = Math.floor((tzSecondsSinceMidnight % 10800) / 900);
+    let tzKumana = Math.floor(((tzSecondsSinceMidnight % 10800) % 900) / 30);
+    let tzKislun = tzSecondsSinceMidnight % 30;
+
+    currentTimeLocal.innerHTML = `${tzHours}:${tzMinutes}:${tzSeconds}`;
+    mandoTimeLocal.innerHTML = `${tzHakbase}:${tzGetue}:${tzKumana}:${tzKislun}`;
 }
 
 var t = setInterval(updateTimes, 1000);
